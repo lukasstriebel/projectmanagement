@@ -65,7 +65,6 @@ class ListMenu extends Component {
             </section>
           </div>
         )
-        break;
       default:
         return (
           <div className="list-menu" ref={node => this.node = node}>

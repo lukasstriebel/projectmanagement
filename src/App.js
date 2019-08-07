@@ -118,7 +118,7 @@ class App extends Component {
   handleTitleChange = (id, e) => {
     const { lists } = this.state;
     for (let list in lists) {
-      if (lists[list].id == id) {
+      if (lists[list].id === id) {
         lists[list].title = e;
       }
     }

@@ -1,8 +1,7 @@
 import React from 'react';
 import BackgroundType from './Background/BackgroundType.js';
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-// import { library, config } from '@fortawesome/fontawesome-svg-core'; config.autoAddCss = false;
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -58,10 +57,6 @@ class MainMenu extends React.Component {
         }))
         this.props.handleBackgroundImage();
     }
-
-    // updateMenuTitle = () => {
-       
-    // };
 
 
     render = () => {
