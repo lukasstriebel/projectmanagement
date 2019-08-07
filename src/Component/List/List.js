@@ -112,15 +112,6 @@ class List extends Component {
     })
   }
 
-
-  // WILL USE FUNCTION INSIDE OF MODAL TO DELETE CARD
-  // deleteCard = id => {
-  //   const filteredCards = this.state.cards.filter(card => card.id !== id);
-  //   this.setState({
-  //     cards: filteredCards
-  //   });
-  // };
-
   render() {
     const { isEdit, isSubmitted, showCardForm, cardVal, listMenuOpen, isModalOpen } = this.state;
     const { id, title } = this.props.list;
@@ -204,10 +195,8 @@ class List extends Component {
                         toggleModal={this.toggleModal}
                         isModalOpen={this.state.isModalOpen}
                       >
-                        {/* {provided.placeholder} */}
                       </Card>
                     ))}
-                    {/* </ul> */}
                   </ul>
                 )}
               </Droppable>
@@ -228,20 +217,7 @@ class List extends Component {
                 <p className="add-card-btn" onClick={this.toggleCardForm}>
                   + <span>Add a card...</span>
                 </p>
-              )}
-            {/* <button
-              className="btn btn--delete-list"
-              onClick={e => {
-                e.preventDefault();
-                if(window.confirm('Are you sure you want to delete ' + title + '?')) {
-                  alert("List " + title + " deleted.");
-                  this.props.deleteList(id);
-                } else {}
-                // this.props.deleteList(id);
-              }}
-            >
-              Delete List
-        </button> */}
+              )}            
           </div>)}
 
       </Draggable>

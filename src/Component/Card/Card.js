@@ -7,23 +7,7 @@ import { fstat } from "fs";
 export default class Card extends React.Component {
 
 
-    /* MOVED ISMODALOPEN AND TOGGLEMODAL FROM CARD TO LIST FOR THE MODAL DRAGGABLE ISSUE */
-
-    
-    // state = {
-    //     isModalOpen: false
-    // }
-    
-
-    // toggleModal = () => {
-    //     const { isModalOpen } = this.state
-    //     this.setState({
-    //         isModalOpen: !isModalOpen
-    //     })
-    // }
-
     render() {
-        // const { isModalOpen } = this.props
         const { toggleModal, isModalOpen, content, editCard, deleteCard, cardId, list, card, addCardDescription } = this.props;
         return (
             <Fragment>
@@ -38,7 +22,7 @@ export default class Card extends React.Component {
                         >
                             {provided.placeholder}
                             {content}
-                        {/* </li> */}
+                        
                         </li>
                     )}
                     

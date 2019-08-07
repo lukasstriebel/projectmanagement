@@ -9,12 +9,9 @@ import uuid from "uuid";
 
 import "./App.scss";
 import BoardNav from "./Component/BoardNav/BoardNav.js";
-//import MainMenu from "./Component/MainMenu.js";
 
 import List from "./Component/List/List";
-//import BackgroundSelection from "./Component/Background/BackgroundSelection";
 import Scene3 from './Component/Background/images/scene3.jpg';
-//import { faImages } from "@fortawesome/free-solid-svg-icons";
 
 class App extends Component {
 
@@ -38,21 +35,6 @@ class App extends Component {
   }
 
 
-  // addList = () => {
-  //   const { lists } = this.state;
-  //   const listId = uuid().replace(/-/g, "");
-  //   const newList = Object.assign(lists, {
-  //     [listId]: {
-  //       id: listId,
-  //       title: "",
-  //       taskIds: []
-  //     }
-  //   });
-  //   this.setState({
-  //     lists: newList
-  //   });
-  // console.log(lists);
-
   handleBackgroundColor = () => { this.setState({ backgroundType: 'Colors' }) }
 
   handleBackgroundImage = () => { this.setState({ backgroundType: 'Images' }) }
@@ -61,8 +43,6 @@ class App extends Component {
     let styleType = ((this.state.backgroundType === 'Colors') ? { backgroundColor: `${newBackground}` } : { backgroundImage: `url(${newBackground})` })
     this.setState({ styleType })
   }
-  // console.log(lists);
-  // };
 
 
   addList = () => {
@@ -78,7 +58,6 @@ class App extends Component {
     this.setState({
       lists: newList
     });
-    // console.log(lists);
     // add the created list inside the listOrder array
     for (let list in lists) {
       this.setState({
@@ -117,17 +96,6 @@ class App extends Component {
     this.setState({ cards, lists, listOrder });
   }
 
-  // const newTaskIds = list.taskIds.filter(task => task !== cardName);
-  //   const newCards = { ...this.state.cards };
-  //   delete newCards[cardName];
-  //   const list_copy = { ...this.state.lists };
-  //   for (let key in list_copy) {
-  //     if (list_copy[key].id === list.id) {
-  //       list_copy[key] = { ...list, taskIds: newTaskIds };
-  //     }
-  //   }
-  //   console.log(newCards, this.state.cards);
-  //   this.setState({ cards: newCards, lists: list_copy });
 
   deleteList = id => {
     const { cards, lists, listOrder } = this.state;
@@ -217,24 +185,6 @@ class App extends Component {
     })
   }
 
-
-  //   deleteCard = (cardName, list) => {
-  //     const newTaskIds = list.taskIds.filter(task => task !== cardName);
-  //     const newCards = { ...this.state.cards };
-  //     delete newCards[cardName];
-  //     const list_copy = { ...this.state.lists };
-  //     for (let key in list_copy) {
-  //       if (list_copy[key].id === list.id) {
-  //         list_copy[key] = { ...list, taskIds: newTaskIds };
-  //       }
-  //     }
-  //     this.setState({ cards: newCards, lists: list_copy });
-  //   };
-
-  //   this.setState({
-  //     lists
-  //   });
-  // };
 
 
 
@@ -330,25 +280,13 @@ class App extends Component {
     this.setState(newState);
   }
 
-  //   const dropId = source.droppableId;
-  //   const list = this.state.lists[dropId];
-  //   var newCardIds = Array.from(list.taskIds);
-  //   newCardIds.splice(source.index, 1);
-  //   newCardIds.splice(destination.index, 0, draggableId);
-  //   let lists = this.state.lists;
-  //   lists[dropId].taskIds = newCardIds;
-  //   this.setState({
-  //     lists
-  //   })
-
-  // }
 
   render() {
 
     const { lists, cards, listOrder, styleType } = this.state;
     return (
       <div className="App" style={styleType}>
-        <SimpleStorage parent={this} prefix={"Geckos14_Trello_Clone"} />
+        <SimpleStorage parent={this} prefix={"Project_Management"} />
         <BoardNav
           handleBackgroundChange={this.handleBackgroundChange}
           handleBackgroundColor={this.handleBackgroundColor}

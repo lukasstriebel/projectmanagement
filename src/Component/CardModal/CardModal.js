@@ -167,7 +167,6 @@ export default class CardModal extends Component {
                                         </p>
                                     </div>)}
                             </div>
-                            {/* <div className="row"> */}
                             <section className="col double-col">
                                 <div className="description">
                                     <h5 className="modal-elements description__title">
