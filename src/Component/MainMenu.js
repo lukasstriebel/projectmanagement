@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundType from './Background/BackgroundType.js';
+import BackgroundType from './Background/BackgroundType';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

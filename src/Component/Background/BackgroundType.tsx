@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import BackgroundSelection from './BackgroundSelection.js';
 import Scene3 from './images/scene3.jpg';
+import { string } from "prop-types";
 
 class BackgroundType extends Component {
     state = {
-        
+        backgroundType: string
     };
 
     handleColorMenu = () => {    
@@ -14,10 +15,11 @@ class BackgroundType extends Component {
     handleImageMenu = () => {
         this.props.toggleImageMenu(); 
     }
+    props: any;
 
     
 
-    render() {
+    render() : JSX.Element {
     
         return (
             <div className={this.props.changeBackground ? "background-menu-main background-menu-main-show" : "background-menu-main background-menu-main-hide"}>
