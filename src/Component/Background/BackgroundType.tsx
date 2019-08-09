@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BackgroundSelection from './BackgroundSelection.js';
+import BackgroundSelection from './BackgroundSelection';
 import Scene3 from './images/scene3.jpg';
 import { string } from "prop-types";
 

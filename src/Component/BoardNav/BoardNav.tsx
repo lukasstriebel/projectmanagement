@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import BoardTitleMenu from './BoardTitleMenu.js';
-import MainMenu from "../MainMenu.js";
-import Team from "../Team.js";
+import BoardTitleMenu from './BoardTitleMenu';
+import MainMenu from "../MainMenu";
+import Team from "../Team";
 import uuid from "uuid";
-import SimpleStorage from "react-simple-storage";
+//import SimpleStorage from "react-simple-storage";
 
 class BoardNav extends Component {
 
@@ -18,22 +18,22 @@ class BoardNav extends Component {
 
     team: [
       {
-        id: 1,
+        id: '1',
         name: 'Nikola Tesla',
         initials: 'NT'
       },
       {
-        id: 2,
+        id: '2',
         name: 'Stephen Hawking',
         initials: 'SH'
       },
       {
-        id: 3,
+        id: '3',
         name: 'Isaac Newton',
         initials: 'IN'
       },
       {
-        id: 4,
+        id: '4',
         name: 'Alan Turing',
         initials: 'AT'
       }
@@ -41,13 +41,13 @@ class BoardNav extends Component {
     ],
   };
 
-
+  props: any;
 
   // -- handle main menu --
 
-  toggleCloseButton = (e) => {
+  toggleCloseButton = (e: any) => {
     e.preventDefault();
-    this.setState((prevState) => ({
+    this.setState((prevState: any) => ({
       MMisOpen: !prevState.MMisOpen
     }))
   }
@@ -61,7 +61,7 @@ class BoardNav extends Component {
   };
 
   // -- handle board name submission --
-  handleNameSubmit = e => {
+  handleNameSubmit = (e: any) => {
     e.preventDefault();
     const newName = e.target.elements.name.value
     const inputLength = newName.length;
@@ -84,7 +84,7 @@ class BoardNav extends Component {
   };
 
   // -- handle member add submission --
-  handleMemberSubmit = e => {
+  handleMemberSubmit = (e: any) => {
     e.preventDefault();
     var newMember = e.target.elements.name.value
     const inputLength = newMember.length;
@@ -97,14 +97,14 @@ class BoardNav extends Component {
     }
   }
 
-  abbreviate = (newMember) => {
-    let nameArr = newMember.split(' ').map((name) => name.charAt(0));
+  abbreviate = (newMember: any) => {
+    let nameArr = newMember.split(' ').map((name: any) => name.charAt(0));
     let nameAbbr = nameArr.join('');
     console.log(nameAbbr);
     this.handleMemberAdd(newMember, nameAbbr)
   }
 
-  handleMemberAdd = (newMember, nameAbbr) => {
+  handleMemberAdd = (newMember: any, nameAbbr: any) => {
     const { team } = this.state;
     // generate member id
     const memId = uuid().replace(/-/g, "");
@@ -123,7 +123,7 @@ class BoardNav extends Component {
   };
 
   // ------ delete member -------
-  deleteMember = id => {
+  deleteMember = (id: any) => {
     const { team } = this.state;
     const willDelete = window.confirm('Remove this team member?')
 
@@ -136,17 +136,17 @@ class BoardNav extends Component {
   }
 
   toggleYellow = () => {
-    this.setState((prevState) => ({
+    this.setState((prevState: any) => ({
       starColor: (prevState.starColor === '#f2d600' ? 'white' : '#f2d600')
     }));
   };
 
 
-  render() {
+  render(): JSX.Element {
     const { showNameMenu, BoardName, inviteMember } = this.state;
     return (
       <div className="board-nav-wrapper">
-        <SimpleStorage parent={this} prefix={"TrelloClone"} />
+        {/*<SimpleStorage parent={this} prefix={"TrelloClone"} />*/}
         <MainMenu
           menuState={false}
           MMisOpen={this.state.MMisOpen}

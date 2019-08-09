@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, FormEvent } from 'react';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import '../CardModal/datepicker.css';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import CheckList from '../Card/CheckList';
+import { any } from 'prop-types';
 
 const dateStyle = {
     width: '75px',
@@ -13,26 +14,36 @@ const dateStyle = {
 
 export default class CardModal extends Component {
 
-    constructor(props) {
+    constructor(props: any) {
         super(props);
         this.state = {
             calendarFocused: false,
             isSubmitted: false,
             isEdit: false,
-            descripton: "",
+            descripton: "",         
         }
     }
-
-    onDateChange = (createdAt) => {
+    state: {
+        calendarFocused: boolean,
+        isSubmitted: boolean,
+        isEdit: boolean,
+        createdAt?: Moment,
+        descripton: string
+    };
+    props: any;
+    onDateChange = (createdAt: any) => {
         const editedCard = { ...this.props.card, dueDate: createdAt };
         this.props.editCard(this.props.card.id, editedCard);
     }
 
-    onCalendarFocusChange = ({ focused }) => {
+    onCalendarFocusChange = (focused : {focused: boolean;}) => {
         this.setState(() => ({ calendarFocused: focused }));
     }
     createNewCheckList = () => {
-        const newCheckList = {
+        const newCheckList: {
+            title: string,
+            tasks: any[]
+        } = {
             title: "To-Do",
             tasks: []
         }
@@ -51,7 +62,7 @@ export default class CardModal extends Component {
         this.props.editCard(this.props.cardId, editedCard);
     }
 
-    addCheckListItem = (itemToAdd) => {
+    addCheckListItem = (itemToAdd: any) => {
         if (itemToAdd) {
             const tasks = [...this.props.card.checkList.tasks, itemToAdd];
             const newCheckList = { ...this.props.card.checkList, tasks };
@@ -63,7 +74,7 @@ export default class CardModal extends Component {
         }
     }
 
-    changeCheckListTitle = (title) => {
+    changeCheckListTitle = (title: any) => {
         const checkList = {
             ...this.props.card.checkList,
             title
@@ -75,8 +86,8 @@ export default class CardModal extends Component {
         this.props.editCard(this.props.cardId, editedCard);
     }
 
-    editCheckListItem = (position, editedCheckList) => {
-        const tasks = this.props.card.checkList.tasks.map((checklistItem, index) => (index !== position ? checklistItem : editedCheckList));
+    editCheckListItem = (position: any, editedCheckList: any) => {
+        const tasks = this.props.card.checkList.tasks.map((checklistItem: any, index: number) => (index !== position ? checklistItem : editedCheckList));
 
         const editedCard = {
             ...this.props.card,
@@ -88,12 +99,9 @@ export default class CardModal extends Component {
         this.props.editCard(this.props.cardId, editedCard);
     }
 
-    // onChangeCheckListItem = itemClicked => {
-    //     this.props.onChangeCheckListItem(this.props.cardId, itemClicked);
-    // }
 
-    onDeleteCheckListItem = index => {
-        const tasks = this.props.card.checkList.tasks.filter((item, currIndex) => currIndex !== index);
+    onDeleteCheckListItem = (index: number) => {
+        const tasks = this.props.card.checkList.tasks.filter((item: any, currIndex: number) => currIndex !== index);
         const editedCard = {
             ...this.props.card,
             checkList: {
@@ -105,10 +113,10 @@ export default class CardModal extends Component {
     }
 
 
-    onToggleCheckBox = index => {
+    onToggleCheckBox = (index: number)  => {
         const toggledCheckListItem = this.props.card.checkList.tasks[index];
         const editedCheckListItem = { item: toggledCheckListItem.item, complete: !toggledCheckListItem.complete };
-        const tasks = this.props.card.checkList.tasks.map((item, currIndex) => {
+        const tasks = this.props.card.checkList.tasks.map((item: any, currIndex: number) => {
             return (currIndex === index ? editedCheckListItem : item);
         });
         const editedCard = {
@@ -121,15 +129,15 @@ export default class CardModal extends Component {
         this.props.editCard(this.props.cardId, editedCard);
     }
 
-    handleDescriptionChange = e => {
+    handleDescriptionChange = (e: any) => {
         const description = e.target.value
         this.setState({ description })
     }
 
-    submitDescription = e => {
+    submitDescription = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const { id } = this.props.card
-        const { description } = this.state
+        const { description }: any = this.state
         this.props.addCardDescription(id, description)
         this.setState({
             isSubmitted: true,
@@ -148,7 +156,7 @@ export default class CardModal extends Component {
 
         const currentDate = moment();
         const { card, isModalOpen, toggleModal, cardId, list, deleteCard, content } = this.props;
-        const { description, isSubmitted, isEdit } = this.state
+        const { description, isSubmitted, isEdit }: any = this.state
         return (
             <div className="card-modal" style={{ display: isModalOpen === cardId ? 'block' : 'none' }}>
                 <div className="card-modal__content">
@@ -177,7 +185,7 @@ export default class CardModal extends Component {
                                     {// if isSubmitted is false, show form. Else, hide form and show description
                                         !isSubmitted && <form className="description__form" onSubmit={this.submitDescription}>
                                             <textarea
-                                                rows="5"
+                                                rows={5}
                                                 className="description__form-textarea"
                                                 value={description}
                                                 placeholder="Add a more detailed description..."
@@ -215,6 +223,7 @@ export default class CardModal extends Component {
                                         <i className="fa fa-calendar-alt"></i>
                                     </div>
                                     <SingleDatePicker
+                                        id="1"
                                         placeholder={"Due Date"}
                                         readOnly={true}
                                         date={this.state.createdAt}

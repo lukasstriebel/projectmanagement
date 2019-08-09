@@ -6,7 +6,8 @@ class ListMenu extends Component {
     menuDisplay: 'default',
     titleName: ''
   }
-
+  props: any;
+  node: any;
   UNSAFE_componentWillMount() {
     document.addEventListener("mousedown", this.handleToggleListMenu, false);
   }
@@ -15,7 +16,7 @@ class ListMenu extends Component {
     document.removeEventListener("mousedown", this.handleToggleListMenu, false);
   }
 
-  handleToggleListMenu = e => {
+  handleToggleListMenu = (e: any) => {
     if (this.node.contains(e.target)) {
       return;
     }
@@ -30,7 +31,7 @@ class ListMenu extends Component {
     this.setState({ menuDisplay: 'copyList' });
   }
 
-  onCopyTitleChange = (titleName) => {
+  onCopyTitleChange = (titleName: any) => {
     this.setState({ titleName }); 
   }
 

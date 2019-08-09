@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
 
-const _calculatePercent =(items) => {
-    let tasksDone = items.reduce((acc, item)=> item.complete ? acc+1 : acc,0);
-    let progressPct = parseInt((tasksDone / items.length) * 100);
+const _calculatePercent =(items: any) => {
+    let tasksDone: number = items.reduce((acc: any, item: any)=> item.complete ? acc+1 : acc,0);
+    let progressPct = (tasksDone / items.length) * 100;
     return progressPct;
 
 }
@@ -14,7 +14,7 @@ class CheckList extends Component {
         editingTitle : false,
         checkListTitle : ''
     }
-
+    props: any;
     componentDidMount = () => {
         if (this.props.checkList.title !== this.state.checkListTitle) {
             this.setState({ checkListTitle : this.props.checkList.title });
@@ -26,14 +26,14 @@ class CheckList extends Component {
         this.setState({ editingTitle : false });
     }
 
-    addNewCheckListItem = (listItem) => {
+    addNewCheckListItem = (listItem: any) => {
         if (listItem) {
             this.props.addCheckListItem({item: listItem, complete: false});
         }
         this.setState({ addingNewItem : false });
     }
 
-    onChangeTitleForm = (title) => {
+    onChangeTitleForm = (title: any) => {
         if (title) this.setState({ checkListTitle : title });
     }
 
@@ -83,7 +83,7 @@ class CheckList extends Component {
                         </div>
                     }
                     <ul className="checklist__items">
-                        {checkListExists && checkList.tasks.map((checklistItem, index) => 
+                        {checkListExists && checkList.tasks.map((checklistItem: any, index: number) => 
                         <ListItem 
                                 key={index}
                                 index={index}
@@ -105,7 +105,7 @@ class CheckList extends Component {
                     (<form 
                     className="add-new-checkList"
                     placeholder="Add an item..."
-                    onSubmit={(e)=>{
+                    onSubmit={(e: any)=>{
                         e.preventDefault();
                         this.addNewCheckListItem(e.target.elements.addItem.value);
                         }

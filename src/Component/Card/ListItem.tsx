@@ -7,22 +7,22 @@ class ListItem extends Component {
         textValue:'',
         itemPosition:''
     }
-
+    props: any;
     componentDidMount = () => {
         if (this.props.item !== this.state.textValue) {
             this.setState({ textValue : this.props.item });
         }
     }    
 
-    onClickTextField = (textValue) => {
+    onClickTextField = () => {
         this.setState({ isEditable : true });
     }
 
-    onChangeTextField = (textValue) => {
+    onChangeTextField = (textValue: string) => {
         this.setState({ textValue });
     }
 
-    handleTextFormSubmit = (index, complete) => {
+    handleTextFormSubmit = (index: number, complete: boolean) => {
         if (this.state.textValue === '') {
             this.props.onDeleteCheckListItem(this.props.index);
         } else {
@@ -57,7 +57,7 @@ class ListItem extends Component {
                         />
                     </form>
                 ) : (
-                    <p className="checklist__name" onClick={()=> {this.onClickTextField(item)}}>{item}</p>
+                    <p className="checklist__name" onClick={()=> {this.onClickTextField()}}>{item}</p>
                 ))}
                 <button className="btn btn--checklist-delete" onClick={()=>onDeleteCheckListItem(index)}><i className="fas fa-times close-item"></i></button>
             </li>

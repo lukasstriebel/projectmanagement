@@ -22,8 +22,8 @@ class BackgroundSelection extends Component {
 
     };
 
-
-    setBackground = (newBackground) => { this.props.handleBackgroundChange(newBackground)}
+    props: any;
+    setBackground = (newBackground: any) => { this.props.handleBackgroundChange(newBackground)}
 
     render() {
 

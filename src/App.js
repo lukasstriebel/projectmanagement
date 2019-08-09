@@ -8,7 +8,7 @@ import "./App.scss";
 import uuid from "uuid";
 
 import "./App.scss";
-import BoardNav from "./Component/BoardNav/BoardNav.js";
+import BoardNav from "./Component/BoardNav/BoardNav";
 
 import List from "./Component/List/List";
 import Scene3 from './Component/Background/images/scene3.jpg';

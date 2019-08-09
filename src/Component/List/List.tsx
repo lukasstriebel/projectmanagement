@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, FormEvent } from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import CardForm from "../Card/CardForm";
 import Card from "../Card/Card";
@@ -14,9 +14,11 @@ class List extends Component {
     // MOVED ISMODALOPEN FROM CARD TO LIST
     isModalOpen: '',
   };
+  node: any;
+  props: any;
   // MOVED TOGGALMODAL FROM CARD TO LIST
-  toggleModal = (cardId) => {
-    this.setState((prevState) =>{
+  toggleModal = (cardId: any) => {
+    this.setState((prevState: any) =>{
        return  {
         isModalOpen: (prevState.isModalOpen === '' ?  cardId : '')
     }});
@@ -30,7 +32,7 @@ class List extends Component {
     document.removeEventListener("mousedown", this.handleSaveTitle, false);
   }
 
-  handleSaveTitle = e => {
+  handleSaveTitle = (e: any) => {
     if (this.node.contains(e.target)) {
       return;
     }
@@ -44,7 +46,7 @@ class List extends Component {
       })
     }
   }
-  componentDidMount = (prevProps) => {
+  componentMount = (prevProps: any) => {
     if (prevProps !== this.props) {
       if (!this.props.isSubmitted) {
         console.log("setting List Form Up");
@@ -60,7 +62,7 @@ class List extends Component {
     });
   };
 
-  saveListTitle = e => {
+  saveListTitle = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // if empty alert user
     if (!this.props.list.title) {
@@ -83,13 +85,13 @@ class List extends Component {
     });
   };
 
-  handleCardValChange = e => {
+  handleCardValChange = (e: any) => {
     this.setState({
       cardVal: e.target.value
     });
   };
 
-  addToCard = e => {
+  addToCard = (e: Event) => {
     e.preventDefault();
     const { cardVal } = this.state;
     // if cardVal is empty, alert user
@@ -181,7 +183,7 @@ class List extends Component {
                     {...provided.droppableProps}
                   >
                     {provided.placeholder}
-                    {cardList.map((card, index) => (
+                    {cardList.map((card: any, index: number) => (
                       <Card
                         key={card.id}
                         cardId={card.id}

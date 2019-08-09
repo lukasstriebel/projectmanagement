@@ -1,14 +1,14 @@
 import React from "react";
 
-const CardForm = ({
+const CardForm  = ({
   cardVal,
   handleCardValChange,
   addToCard,
   toggleCardForm
-}) => (
+}: any) :JSX.Element => (
   <form className="card--form" onSubmit={addToCard}>
     <textarea
-      rows="3"
+      rows={3}
       value={cardVal}
       onChange={handleCardValChange}
       placeholder="Enter a title for this card..."

@@ -1,7 +1,5 @@
 import React from 'react';
 import BackgroundType from './Background/BackgroundType';
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +16,7 @@ class MainMenu extends React.Component {
         colorMenu: false,
         imageMenu: false,
     }
-
+    props: any;
     toggleMenuControl = () => {
         if (this.state.colorMenu || this.state.imageMenu) {
             this.setState(() => ({
@@ -32,7 +30,7 @@ class MainMenu extends React.Component {
     toggleBackgroundMenu = () => {
 
         //arrow shows when type menu and option menus are open
-        this.setState((prevState) => ({
+        this.setState((prevState: any) => ({
             changeBackground: !prevState.changeBackground,
             menuTitle: prevState.changeBackground ? 'Menu' : 'Change Background'
         }))
@@ -40,7 +38,7 @@ class MainMenu extends React.Component {
 
     //closes and opens the color options menu
     toggleOptionsMenu = () => {
-        this.setState((prevState) => ({
+        this.setState((prevState: any) => ({
             colorMenu: !prevState.colorMenu,
             menuTitle: !prevState.colorMenu ? 'Colors' : 'Change Background'
         }))
@@ -51,7 +49,7 @@ class MainMenu extends React.Component {
     //closes and opens the image options menu
     toggleImageMenu = () => {
 
-        this.setState((prevState) => ({
+        this.setState((prevState: any) => ({
             imageMenu: !prevState.colorMenu,
             menuTitle: !prevState.imageMenu ? 'Photos' : 'Change Background'
         }))

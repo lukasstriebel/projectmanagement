@@ -1,25 +1,14 @@
 import React from "react";
-// import { prependOnceListener } from "cluster";
 
-// const menuLabels = {
-//   title: 'RenameBoard',
-//   inputLabel: 'Name',
-//   placeholder: BoardName,
-//   buttonLabel: 'Rename'
-// }
-
-
-const BoardTitleMenu = ({
-  
+const BoardTitleMenu = ({  
   handleShowMenu,
-  handleNameSubmit,
-  
+  handleNameSubmit,  
   placeholder,
   title,
   inputLabel,
   buttonLabel
 
-}) => (
+}: any) => (
     <div className="board-menu">
       <div className="board-menu--header">
         <h2 className="board-menu--title">{title}</h2>

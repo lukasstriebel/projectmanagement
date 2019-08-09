@@ -4,21 +4,16 @@ class Team extends Component {
     state = {
 
     }
-
-    render() {
-
-
+    props: any;
+    render(): JSX.Element {
 
         return (
             <div className="full-team-members">
-
-                {this.props.teamMembers.map((member) =>
+                {this.props.teamMembers.map((member: any) =>
                     <div className="team-member" key={member.id} onClick={() => this.props.deleteMember(member.id)}>
                         {member.initials}
                     </div>
                 )}
-
-
             </div>
         )
     }
