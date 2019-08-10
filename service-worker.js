@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/lukasstriebel/projectmanagement/precache-manifest.68420543859d1129339eade5561085bf.js"
+  "/projectmanagement/precache-manifest.7e7183f0a5cc4122e1b3c6d4e933d486.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/lukasstriebel/projectmanagement/index.html", {
+workbox.routing.registerNavigationRoute("/projectmanagement/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
