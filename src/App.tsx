@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import SimpleStorage, { clearStorage } from "react-simple-storage";
+//import SimpleStorage, { clearStorage } from "react-simple-storage";
 import 'normalize.css';
 import "./App.scss";
 
@@ -15,7 +15,7 @@ import Scene3 from './Component/Background/images/scene3.jpg';
 
 class App extends Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       styleType: { backgroundImage: `url(${Scene3})` },
@@ -33,13 +33,13 @@ class App extends Component {
       listOrder: ['sample_list']
     };
   }
-
-
+  state: any;
+  props: any;
   handleBackgroundColor = () => { this.setState({ backgroundType: 'Colors' }) }
 
   handleBackgroundImage = () => { this.setState({ backgroundType: 'Images' }) }
 
-  handleBackgroundChange = (newBackground) => {
+  handleBackgroundChange = (newBackground: string) => {
     let styleType = ((this.state.backgroundType === 'Colors') ? { backgroundColor: `${newBackground}` } : { backgroundImage: `url(${newBackground})` })
     this.setState({ styleType })
   }
@@ -68,11 +68,10 @@ class App extends Component {
   };
 
   //We need to make copies of the cards from the original List, and add those to the list copy.
-  copyCards = (cardsToCopy) => {
+  copyCards = (cardsToCopy:any) => {
     const cards = {...this.state.cards};
-    const taskIds= [];
-    cardsToCopy.forEach(card => {
-      console.log(card);
+    const taskIds: any = [];
+    cardsToCopy.forEach((card: any) => {
       const id = uuid().replace(/-/g, "");
       cards[id] = {...cards[card]};
       cards[id].id = id;
@@ -81,7 +80,7 @@ class App extends Component {
     return {cards, taskIds};
   }
 
-  copyList = (idToCopy, title="") => {
+  copyList = (idToCopy: string, title="") => {
     const id = uuid().replace(/-/g, "");
     const listCopy = {...this.state.lists[idToCopy]};
     listCopy.id = id;
@@ -97,11 +96,11 @@ class App extends Component {
   }
 
 
-  deleteList = id => {
+  deleteList = (id: string) => {
     const { cards, lists, listOrder } = this.state;
     const taskIds = lists[id].taskIds;
     const newCards = { ...cards };
-    taskIds.forEach(taskId => delete newCards[taskId]);
+    taskIds.forEach((taskId: string) => delete newCards[taskId]);
     const newLists = { ...lists };
     delete newLists[id];
     let index = listOrder.indexOf(id);
@@ -115,7 +114,7 @@ class App extends Component {
   };
 
   // edit list title
-  handleTitleChange = (id, e) => {
+  handleTitleChange = (id: string, e: any) => {
     const { lists } = this.state;
     for (let list in lists) {
       if (lists[list].id === id) {
@@ -127,7 +126,7 @@ class App extends Component {
     });
   };
 
-  addCard = (id, e) => {
+  addCard = (id: string, e: any) => {
     const { cards, lists } = this.state;
     // generate card id
     const cardId = uuid().replace(/-/g, "");
@@ -164,7 +163,7 @@ class App extends Component {
     });
   };
 
-  editCard = (id, editedCard) => {
+  editCard = (id: string, editedCard: any) => {
     const cards = { ...this.state.cards };
     cards[id] = editedCard;
     this.setState({
@@ -173,7 +172,7 @@ class App extends Component {
   }
 
   // add a description to a card
-  addCardDescription = (id, description) => {
+  addCardDescription = (id: string, description: string) => {
     const { cards } = this.state
     for (let card in cards) {
       if (cards[card].id === id) {
@@ -188,8 +187,8 @@ class App extends Component {
 
 
 
-  deleteCard = (cardName, list) => {
-    const newTaskIds = list.taskIds.filter(task => task !== cardName);
+  deleteCard = (cardName: string, list: any) => {
+    const newTaskIds = list.taskIds.filter((task: string) => task !== cardName);
     const newCards = { ...this.state.cards };
     delete newCards[cardName];
     const list_copy = { ...this.state.lists };
@@ -201,7 +200,7 @@ class App extends Component {
     this.setState({ cards: newCards, lists: list_copy });
   };
 
-  onDragEnd = result => {
+  onDragEnd = (result: any) => {
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {
@@ -286,7 +285,7 @@ class App extends Component {
     const { lists, cards, listOrder, styleType } = this.state;
     return (
       <div className="App" style={styleType}>
-        <SimpleStorage parent={this} prefix={"Project_Management"} />
+        {/*<SimpleStorage parent={this} prefix={"Project_Management"} />*/}
         <BoardNav
           handleBackgroundChange={this.handleBackgroundChange}
           handleBackgroundColor={this.handleBackgroundColor}
@@ -305,9 +304,9 @@ class App extends Component {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {listOrder.map((listId, index) => {
+                {listOrder.map((listId: string, index: number) => {
                   const list = lists[listId];
-                  const cardList = list.taskIds.map(id => cards[id]);
+                  const cardList = list.taskIds.map((id: string) => cards[id]);
                   return (
                     <List
                       isSubmitted={list.title==="" ? false : true }
@@ -320,7 +319,6 @@ class App extends Component {
                       addCard={this.addCard}
                       editCard={this.editCard}
                       deleteCard={this.deleteCard}
-                      editCard={this.editCard}
                       deleteList={this.deleteList}
                       addCardDescription={this.addCardDescription}
                       index={index}

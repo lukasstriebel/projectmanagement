@@ -33,12 +33,18 @@ class CheckList extends Component {
         this.setState({ addingNewItem : false });
     }
 
-    onChangeTitleForm = (title: any) => {
-        if (title) this.setState({ checkListTitle : title });
+    onChangeTitleForm = (title: string) => {
+        if (title) {
+            this.setState({ checkListTitle : title });
+        }
     }
 
-    toggleCheckListTitle = () => (this.setState({ editingTitle : true }));
-    toggleNewItem = () => (this.setState({ addingNewItem : true }));
+    toggleCheckListTitle = () => {
+        this.setState({ editingTitle : true })
+    }
+    toggleNewItem = () => {
+        this.setState({ addingNewItem : true })
+    };
 
 
     render() {
@@ -52,7 +58,6 @@ class CheckList extends Component {
                     {!this.state.editingTitle ? 
                     (<h2 
                     className="checklist__title"
-                    // onClick={this.toggleCheckListTitle}
                     ><i className="far fa-check-square left-side-icons"></i>{checkList.title}</h2>) :
                     (<form onSubmit={(e)=> {
                         e.preventDefault();
@@ -64,7 +69,6 @@ class CheckList extends Component {
                         onChange={(e)=> {
                             e.preventDefault();
                             this.onChangeTitleForm(e.target.value);
-                            console.log(this.state.checkListTitle);
                         }}
                         />
                     </form>)
@@ -74,7 +78,6 @@ class CheckList extends Component {
                 </div>
                 <div className="checklist-content">
                     {
-                        // progressPct != 0 && 
                         <div className="progress-bar">
                             <div className="progress-bar__inner" style={percentageComplete}>
                             <span className="progress-percent-display">{progressPct === 0 ? "\xa0" : progressPct + "%"}</span>

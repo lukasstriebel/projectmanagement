@@ -8,11 +8,11 @@ class BackgroundType extends Component {
         backgroundType: string
     };
 
-    handleColorMenu = () => {    
+    handleColorMenu = ()  => {    
         this.props.toggleOptionsMenu();
     }
     
-    handleImageMenu = () => {
+    handleImageMenu = ()  => {
         this.props.toggleImageMenu(); 
     }
     props: any;

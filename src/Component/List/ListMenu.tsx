@@ -31,7 +31,7 @@ class ListMenu extends Component {
     this.setState({ menuDisplay: 'copyList' });
   }
 
-  onCopyTitleChange = (titleName: any) => {
+  onCopyTitleChange = (titleName: string) => {
     this.setState({ titleName }); 
   }
 

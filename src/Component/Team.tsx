@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 
+interface TeamMember {
+    id: string,
+    name: string,
+    initials: string
+}
+
 class Team extends Component {
     state = {
 
     }
-    props: any;
+    props: {
+        teamMembers: TeamMember[],
+        deleteMember(member: TeamMember): void 
+    };
     render(): JSX.Element {
 
         return (
