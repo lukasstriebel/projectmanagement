@@ -3,7 +3,7 @@ import BoardTitleMenu from './BoardTitleMenu';
 import MainMenu from "../MainMenu";
 import Team from "../Team";
 import uuid from "uuid";
-//import SimpleStorage from "react-simple-storage";
+import SimpleStorage from "react-simple-storage";
 
 class BoardNav extends Component {
 
@@ -146,7 +146,7 @@ class BoardNav extends Component {
     const { showNameMenu, BoardName, inviteMember } = this.state;
     return (
       <div className="board-nav-wrapper">
-        {/*<SimpleStorage parent={this} prefix={"TrelloClone"} />*/}
+        <SimpleStorage parent={this} prefix={"TrelloClone"} />
         <MainMenu
           menuState={false}
           MMisOpen={this.state.MMisOpen}

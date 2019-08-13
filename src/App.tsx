@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-//import SimpleStorage, { clearStorage } from "react-simple-storage";
+import SimpleStorage from "react-simple-storage";
 import 'normalize.css';
 import "./App.scss";
 
@@ -11,7 +11,7 @@ import "./App.scss";
 import BoardNav from "./Component/BoardNav/BoardNav";
 
 import List from "./Component/List/List";
-import Scene3 from './Component/Background/images/scene3.jpg';
+import Scene3 from './Component/Background/images/scene8.jpg';
 
 class App extends Component {
 
@@ -64,7 +64,6 @@ class App extends Component {
         listOrder: [...this.state.listOrder, list]
       });
     }
-    // console.log(lists);
   };
 
   //We need to make copies of the cards from the original List, and add those to the list copy.
@@ -285,7 +284,7 @@ class App extends Component {
     const { lists, cards, listOrder, styleType } = this.state;
     return (
       <div className="App" style={styleType}>
-        {/*<SimpleStorage parent={this} prefix={"Project_Management"} />*/}
+        <SimpleStorage parent={this} prefix={"Project_Management"} />
         <BoardNav
           handleBackgroundChange={this.handleBackgroundChange}
           handleBackgroundColor={this.handleBackgroundColor}

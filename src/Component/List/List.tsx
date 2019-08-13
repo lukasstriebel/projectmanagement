@@ -91,7 +91,7 @@ class List extends Component {
     });
   };
 
-  addToCard = (e: Event) => {
+  addToCard = (e: any) => {
     e.preventDefault();
     const { cardVal } = this.state;
     // if cardVal is empty, alert user
