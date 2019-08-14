@@ -11,12 +11,10 @@ class List extends Component {
     showCardForm: false,
     cardVal: "",
     listMenuOpen: false,
-    // MOVED ISMODALOPEN FROM CARD TO LIST
     isModalOpen: '',
   };
   node: any;
   props: any;
-  // MOVED TOGGALMODAL FROM CARD TO LIST
   toggleModal = (cardId: any) => {
     this.setState((prevState: any) =>{
        return  {
@@ -85,14 +83,14 @@ class List extends Component {
     });
   };
 
-  handleCardValChange = (e: any) => {
+  handleCardValChange = (event: any) => {
     this.setState({
-      cardVal: e.target.value
+      cardVal: event.target.value
     });
   };
 
-  addToCard = (e: any) => {
-    e.preventDefault();
+  addToCard = (event: any) => {
+    event.preventDefault();
     const { cardVal } = this.state;
     // if cardVal is empty, alert user
     if (!cardVal) {

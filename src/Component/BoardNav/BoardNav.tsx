@@ -92,8 +92,6 @@ class BoardNav extends Component {
       alert('please enter a name')
     } else if (inputLength !== 0) {
       this.abbreviate(newMember);
-      // let updateTeam = []
-
     }
   }
 
@@ -218,8 +216,3 @@ class BoardNav extends Component {
 }
 
 export default BoardNav;
-
-// {this.state.team.map((member)=>
-//   <Team
-//     teamMembers={this.state.team} key={member.name}/>
-//   )}  
