@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/projectmanagement/static/media/scene2.1d01566a.jpg"
   },
   {
-    "revision": "7c14a82ffd5ee1a71b4e",
-    "url": "/projectmanagement/static/css/main.dcd308ff.chunk.css"
+    "revision": "31922a105fa6d56d25e6",
+    "url": "/projectmanagement/static/css/main.766f7ab5.chunk.css"
   },
   {
     "revision": "7dc1341c52d53a965e35",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/projectmanagement/static/media/scene1.03811d32.jpg"
   },
   {
-    "revision": "7c14a82ffd5ee1a71b4e",
-    "url": "/projectmanagement/static/js/main.6d39348b.chunk.js"
+    "revision": "31922a105fa6d56d25e6",
+    "url": "/projectmanagement/static/js/main.4457d01d.chunk.js"
   },
   {
     "revision": "c3461ca4c84f181441790db91bd83e88",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/projectmanagement/static/css/2.aad9072b.chunk.css"
   },
   {
-    "revision": "be5abfed692ae1c1a3d3be533b77375e",
+    "revision": "955b17e1f294f43e5e24d2bd49089e70",
     "url": "/projectmanagement/index.html"
   }
 ];
