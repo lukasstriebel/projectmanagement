@@ -326,10 +326,9 @@ class App extends Component {
                     </List>
                   );
                 })}
-
                 <button className="add-list-btn" onClick={this.addList}>
                   + Add another list
-          </button>
+                </button>
               </div>
             )}
           </Droppable>

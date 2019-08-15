@@ -57,11 +57,6 @@ class BackgroundSelection extends Component {
                         </div>
                     )}
                 </div>
-
-
- 
-
-
             </div>
 
         )
@@ -69,32 +64,3 @@ class BackgroundSelection extends Component {
 }
 
 export default BackgroundSelection;
-
-// <div className={(this.props.colorMenu) ? "background-options-main background-options-main-show" : "background-options-main background-options-main-hide"}>
-// {backgrounds.Colors.map((backgroundColor) =>
-//     <div className="background-options" key={backgroundColor}>
-//         <div className="background-option--wrapper">
-//             <div
-//                 style={{ backgroundColor }}
-//                 className="background-options background-option"
-//                 onClick={() => this.setBackground(backgroundColor)}
-//             >
-//             </div>
-//         </div>
-//     </div>
-// )}
-// </div>
-// <div className={(this.props.imageMenu) ? "background-options-main background-options-main-show" : "background-options-main background-options-main-hide"}>
-// {backgrounds.Images.map((backgroundImage) =>
-//     <div className="background-options" key={backgroundImage}>
-//         <div className="background-option--wrapper">
-//             <div
-//                 style={{ backgroundImage: `url(${backgroundImage})` }}
-//                 className="background-options background-option"
-//                 onClick={() => this.setBackground(backgroundImage)}
-//             >
-//             </div>
-//         </div>
-//     </div>
-// )}
-// </div>
