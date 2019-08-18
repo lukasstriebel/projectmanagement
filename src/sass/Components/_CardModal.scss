@@ -88,7 +88,6 @@
 .description__title {
   margin-left: 0;
   margin-bottom: 5px;
-  //padding-left: 10px;
   font-size: 15px;
   color: $dark-blue;
   width: 98%;
@@ -101,7 +100,6 @@
   margin-left: 10px;
   cursor: pointer;
   color: $slate-gray;
-  // float: right;
 }
 
 .description__form {
@@ -122,7 +120,6 @@
     }
   }
   button {
-    // float: right;
     margin-left: 35px;
   }
 
@@ -190,11 +187,9 @@
 .due-date {
 
   &__title {
-    // padding-left: 5px;
     margin: 0;
     font-weight: bold;
     color: $slate-gray;
-    // text-transform: uppercase;
     text-align: left;
     font-size: 15px;
     color: $dark-blue;

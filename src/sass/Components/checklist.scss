@@ -5,19 +5,10 @@
     margin: 6px 0 4px -8px;
 }
 
-.checklist-content {
-/*** TEMP SETTING FOR TESTING/DEV PURPOSES***/
-    // background-color: $gray;
-    // margin: 10px 0 10px 18px;
-    // width: 93%;
-    // border-radius: 5px;
-}
-
 .checklist__heading {
     
     display: flex;
     justify-content: space-between;
-    // margin: 5px 8px;
     width: 100%;
     padding: 8px 0 0 0;
 
@@ -61,7 +52,6 @@
     background: transparent;
     border: 0px;
     border-radius: .3rem;
-    // background-color: rgba(255, 255, 255, 0);
     color: white;
     padding: 1rem;
 
@@ -71,9 +61,6 @@
 }
 
 .checklist__title {
-    // font-size: $standard-text;
-    // font-size: 14px;
-    // padding-left: 8px;
     margin: 3px 0;
 }
 
@@ -88,7 +75,6 @@
     display: flex;
     align-items: center;
     font-size: 1.4rem;
-    // width: 100%;
     margin-left: 20px;
     padding: 0px 0 0px 4px;
 

@@ -30,8 +30,8 @@ class List extends Component {
     document.removeEventListener("mousedown", this.handleSaveTitle, false);
   }
 
-  handleSaveTitle = (e: any) => {
-    if (this.node.contains(e.target)) {
+  handleSaveTitle = (event: any) => {
+    if (this.node.contains(event.target)) {
       return;
     }
     // if empty, list will be deleted when user clicks outside out if

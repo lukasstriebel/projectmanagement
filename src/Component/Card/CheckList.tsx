@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem';
+import ListItem from '../List/Item';
 
 const _calculatePercent = (items: any) : number => {
-    let tasksDone: number = items.reduce((acc: number, item: any)=> item.complete ? acc + 1 : acc, 0);
+    let tasksDone: number = items.reduce((acc: number, item: any) => item.complete ? acc + 1 : acc, 0);
     return (tasksDone / items.length) * 100;
 
 }
