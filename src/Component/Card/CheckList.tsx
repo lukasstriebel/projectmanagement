@@ -58,16 +58,16 @@ class CheckList extends Component {
                     (<h2 
                     className="checklist__title"
                     ><i className="far fa-check-square left-side-icons"></i>{checkList.title}</h2>) :
-                    (<form onSubmit={(e)=> {
-                        e.preventDefault();
+                    (<form onSubmit={(event)=> {
+                        event.preventDefault();
                         this.handleTitleSubmitForm();
                     }}>
                         <input 
                         type="text" 
                         value={this.state.checkListTitle} 
-                        onChange={(e)=> {
-                            e.preventDefault();
-                            this.onChangeTitleForm(e.target.value);
+                        onChange={(event)=> {
+                            event.preventDefault();
+                            this.onChangeTitleForm(event.target.value);
                         }}
                         />
                     </form>)

@@ -50,7 +50,7 @@ class ListMenu extends Component {
               <h4 className="copy-list__title">Name</h4>
               <div className="copy-menu__title-input">
                 <textarea
-                  onChange={(e) => { this.onCopyTitleChange(e.target.value) }}
+                  onChange={(event) => { this.onCopyTitleChange(event.target.value) }}
                   className="title-input__text"
                   value={this.state.titleName} />
               </div>

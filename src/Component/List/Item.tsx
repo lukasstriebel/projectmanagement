@@ -44,15 +44,15 @@ class ListItem extends Component {
                         className="checklist__complete"
                 />
                 {(this.state.isEditable ? (
-                    <form onSubmit={(e)=> {
-                        e.preventDefault();
+                    <form onSubmit={(event)=> {
+                        event.preventDefault();
                         this.handleTextFormSubmit(index, complete);
                         }}>
                         <input 
                             type='text' 
                             value={this.state.textValue} 
-                            onChange={(e)=> {
-                                this.onChangeTextField(e.target.value);
+                            onChange={(event)=> {
+                                this.onChangeTextField(event.target.value);
                             }}
                         />
                     </form>
