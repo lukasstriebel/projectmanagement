@@ -195,7 +195,7 @@ class BoardNav extends Component {
             </div>
           </div>
 
-          <button className="btn-nav board-nav--menu" onClick={this.toggleCloseButton}><i className="fas fa-ellipsis-h"></i>Show Menu</button>
+          <button className="btn-nav board-nav--menu" onClick={this.toggleCloseButton}><i className="fas fa-ellipsis-h"/>Show Menu</button>
           {
             showNameMenu && (
               <BoardTitleMenu

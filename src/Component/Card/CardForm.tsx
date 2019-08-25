@@ -15,7 +15,7 @@ const CardForm  = ({
     />
     <button type="submit">Add Card</button>
     <span className="cancel-btn" onClick={toggleCardForm}>
-    <i className="fas fa-times"></i>
+    <i className="fas fa-times"/>
     </span>
   </form>
 );

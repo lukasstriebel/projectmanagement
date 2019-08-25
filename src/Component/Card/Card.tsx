@@ -21,11 +21,9 @@ export default class Card extends React.Component {
                             onClick={()=> {toggleModal(this.props.cardId)}}
                         >
                             {provided.placeholder}
-                            {content}
-                        
+                            {content}                        
                         </li>
-                    )}
-                    
+                    )}                    
                 </Draggable>
                 <CardModal disableInteractiveElementBlocking={true} isDragDisabled={false} draggableProps={null} dragHandleProps={null} content={content} deleteCard={deleteCard} cardId={cardId} list={list} card={card} toggleModal={toggleModal} isModalOpen={isModalOpen} editCard={editCard} addCardDescription={addCardDescription} />
             </Fragment>

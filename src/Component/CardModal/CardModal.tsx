@@ -36,7 +36,7 @@ export default class CardModal extends Component {
         this.props.editCard(this.props.card.id, editedCard);
     }
 
-    onCalendarFocusChange = (focused : any) => {
+    onCalendarFocusChange = (focused : boolean) => {
         console.log(focused);
         this.setState(() => ({ calendarFocused: focused }));
     }
@@ -75,7 +75,7 @@ export default class CardModal extends Component {
         }
     }
 
-    changeCheckListTitle = (title: any) => {
+    changeCheckListTitle = (title: string) => {
         const checkList = {
             ...this.props.card.checkList,
             title

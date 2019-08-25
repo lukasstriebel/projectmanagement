@@ -55,9 +55,10 @@ class CheckList extends Component {
             <div className="checklist">
                 <div className="checklist__heading">
                     {!this.state.editingTitle ? 
-                    (<h2 
-                    className="checklist__title"
-                    ><i className="far fa-check-square left-side-icons"></i>{checkList.title}</h2>) :
+                    (<h2 className="checklist__title">
+                        <i className="far fa-check-square left-side-icons"/>
+                        {checkList.title}
+                    </h2>) :
                     (<form onSubmit={(event)=> {
                         event.preventDefault();
                         this.handleTitleSubmitForm();
@@ -99,10 +100,9 @@ class CheckList extends Component {
                         }
                     </ul>
                     {!this.state.addingNewItem ? (
-                        <p 
-                        className="add-new-checkList__placeholder"
-                        onClick={this.toggleNewItem}
-                        >Add an item...</p>
+                        <p className="add-new-checkList__placeholder" onClick={this.toggleNewItem}>
+                            Add an item...
+                        </p>
                     ) :
                     (<form 
                     className="add-new-checkList"
